@@ -19,15 +19,25 @@ export class TimerComponent implements OnInit {
   }
 
   private calcTime(startTime) {
+    const hoursInADay = 24;
+    const minutesInAnHour = 3600;
+    const secondsInAMinute = 60;
+    const millisecondsInASecond = 1000;
+
+    const millisecondsInADay =
+      hoursInADay * minutesInAnHour * millisecondsInASecond;
+    const millisecondsInAnHour = minutesInAnHour * millisecondsInASecond;
+    const millisecondsInAMinute = secondsInAMinute * millisecondsInASecond;
+
     const now = new Date().getTime();
     let timeDifference = now - startTime;
-    const days = Math.floor(timeDifference / (24 * 3600 * 1000));
-    timeDifference = timeDifference - days * 24 * 3600 * 1000;
-    const hours = Math.floor(timeDifference / (3600 * 1000));
-    timeDifference = timeDifference - hours * 3600 * 1000;
-    const minutes = Math.floor(timeDifference / (60 * 1000));
-    timeDifference = timeDifference - minutes * 60 * 1000;
-    const seconds = Math.floor(timeDifference / 1000);
+    const days = Math.floor(timeDifference / millisecondsInADay);
+    timeDifference = timeDifference - days * millisecondsInADay;
+    const hours = Math.floor(timeDifference / millisecondsInAnHour);
+    timeDifference = timeDifference - hours * millisecondsInAnHour;
+    const minutes = Math.floor(timeDifference / millisecondsInAMinute);
+    timeDifference = timeDifference - minutes * millisecondsInAMinute;
+    const seconds = Math.floor(timeDifference / millisecondsInASecond);
 
     function parseToString(amount: number) {
       return amount >= 10 ? amount.toString() : `0${amount.toString()}`;
