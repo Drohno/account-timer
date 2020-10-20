@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { TimerComponent } from './timer/timer.component';
+import { LoginViewComponent } from './views/login/login-view.component';
+import { TimerViewComponent } from './views/timer/timer-view.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginViewComponent
   },
-  { path: 'timer', component: TimerComponent },
+  { path: 'timer', component: TimerViewComponent },
   {
     path: '**',
-    redirectTo: 'login',
-  },
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

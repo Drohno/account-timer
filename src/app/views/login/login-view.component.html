@@ -1,0 +1,9 @@
+<form [formGroup]="logInForm" (submit)="logIn()">
+  <app-input-text formControlName="email" placeholder="E.g. user@example.com"
+    >Email</app-input-text
+  >
+  <app-input-text formControlName="pass" type="password"
+    >Password</app-input-text
+  >
+  <app-button (click)="logIn()">LOG IN</app-button>
+</form>
