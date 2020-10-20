@@ -17,7 +17,11 @@ export class LoginViewComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/timer']);
+    }
+  }
 
   async logIn() {
     const user = {
