@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   templateUrl: './login-view.component.html',
@@ -13,16 +10,25 @@ import {
 export class LoginViewComponent implements OnInit {
   logInForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private authService: AuthService, private router: Router) {
     this.logInForm = new FormGroup({
       email: new FormControl(''),
       pass: new FormControl('')
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
-  logIn() {
-    console.log(this.logInForm.value);
+  async logIn() {
+    const user = {
+      email: this.logInForm.value.email,
+      password: this.logInForm.value.pass
+    };
+    try {
+      await this.authService.login(user.email, user.password);
+      this.router.navigate(['/timer']);
+    } catch (error) {
+      alert(error.message);
+    }
   }
 }

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "account-timer"
+  },
+  "targets": {
+    "account-timer": {
+      "hosting": {
+        "account-timer": [
+          "account-timer"
+        ]
+      }
+    }
   }
 }

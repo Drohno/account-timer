@@ -1,0 +1,15 @@
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  form {
+    width: 50%;
+  }
+}
+
+.lock-size {
+  font-size: 10em;
+}

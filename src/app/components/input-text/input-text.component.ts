@@ -33,11 +33,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
 
   // Tells Angular how to write value from model into view
   writeValue(value: any) {
-    if (value) {
-      this.value = value || '';
-    } else {
-      this.value = '';
-    }
+    this.value = value || '';
   }
   // Registers a handler function that is called when the view changes
   registerOnChange(fn: any): void {

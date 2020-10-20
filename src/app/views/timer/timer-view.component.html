@@ -1,1 +1,15 @@
-<app-timer></app-timer> <app-button>LOGOUT</app-button>
+<div id="center-screen-div">
+  <div class="row">
+    <div class="col-12">
+      <span class="mat-display-1">Welcome!</span>
+    </div>
+    <div class="col-12 mat-subheading-2 text-muted">The last time you accessed was</div>
+    <div class="col-12">
+      <app-timer [time]="lastLoginAt"></app-timer>
+    </div>
+    <div class="col-12 mat-subheading-2 text-muted">ago.</div>
+    <div class="col-12">
+      <app-button (click)="logOut()">LOGOUT</app-button>
+    </div>
+  </div>
+</div>
