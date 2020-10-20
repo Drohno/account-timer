@@ -1,3 +1,7 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/vscode,angular,firebase
+# Edit at https://www.toptal.com/developers/gitignore?templates=vscode,angular,firebase
+
 ### Angular ###
 ## Angular ##
 # compiled output
@@ -37,3 +41,13 @@ e2e/*.map
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# End of https://www.toptal.com/developers/gitignore/api/vscode,angular,firebase
