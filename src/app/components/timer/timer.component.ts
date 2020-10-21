@@ -18,7 +18,7 @@ export class TimerComponent implements OnInit {
     }, 0);
   }
 
-  private calcTime(startTime) {
+  calcTime(startTime) {
     const hoursInADay = 24;
     const minutesInAnHour = 3600;
     const secondsInAMinute = 60;
