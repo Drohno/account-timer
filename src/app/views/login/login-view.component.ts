@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -12,27 +12,24 @@ export class LoginViewComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
     this.logInForm = new FormGroup({
-      email: new FormControl(''),
+      email: new FormControl('', Validators.email,),
       pass: new FormControl('')
     });
   }
 
-  ngOnInit() {
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/timer']);
-    }
-  }
+  ngOnInit() { }
 
-  async logIn() {
+  logIn() {
     const user = {
       email: this.logInForm.value.email,
       password: this.logInForm.value.pass
     };
-    try {
-      await this.authService.login(user.email, user.password);
+    this.authService.login(user.email, user.password).then(response => {
+      this.authService.setUser(response.user);
       this.router.navigate(['/timer']);
-    } catch (error) {
+    }).catch(error => {
+      this.authService.setUser(null);
       alert(error.message);
-    }
+    })
   }
 }

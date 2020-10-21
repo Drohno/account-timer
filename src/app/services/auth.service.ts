@@ -8,28 +8,41 @@ import { User } from 'firebase';
 })
 export class AuthService {
   user: User;
+  getUser() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    return user;
+  }
+
+  setUser(user: User): void {
+    this.user = user;
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+  }
+
   constructor(public afAuth: AngularFireAuth, private router: Router) {
-    this.afAuth.authState.subscribe((user) => {
+    this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(this.user));
+        this.setUser(user);
+        this.router.navigate(['/timer']);
       } else {
-        localStorage.setItem('user', null);
+        this.setUser(null);
+        this.router.navigate(['/login']);
       }
     });
   }
 
-  async login(email: string, password: string) {
-    return await this.afAuth.signInWithEmailAndPassword(email, password);
+  login(email: string, password: string) {
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  async logOut() {
-    await this.afAuth.signOut();
-    this.router.navigate(['/login']);
+  logOut() {
+    return this.afAuth.signOut()
   }
 
   isLoggedIn() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null;
+    return this.getUser() !== null;
   }
 }
