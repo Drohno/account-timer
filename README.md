@@ -7,6 +7,12 @@
 3. Start the project executing `npm start`.
 4. Have fun in http://localhost:4200 with the email `account@timer.com` and the password `t3t1ng154fun` !
 
+## Steps to launch the components tests.
+
+1. First two steps of previous procedure if not already done.
+2. Launch karma and jasmine testing using `npm run test`.
+3. Watch the results of the tests in chrome and also from the terminal.
+
 ## Technology used in this project
 
 1. NPM as package manager
@@ -14,6 +20,6 @@
 3. TSLint to ensure everything is according the laws described in `tslint.json`.
 4. Prettier to keep things pretty to the eyes and following what is inside `.prettierrc`.
 5. Firebase as authentication databse and hosting (you can visit this project deployed in [here](https://account-timer.web.app/))
-6. And finally Karma and Jasmine to cover e2e and unit testing.
+6. And finally Karma and Jasmine to cover unit testing.
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
