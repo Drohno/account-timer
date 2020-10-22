@@ -1,14 +1,20 @@
-<div class="log-in-form">
-  <form class="row" [formGroup]="logInForm">
+<div class="login">
+  <form class="row login__form" [formGroup]="logInForm">
     <div class="col-12">
-      <span class="material-icons lock-size"> lock </span>
+      <span class="material-icons login__form__lock"> lock </span>
     </div>
     <div class="col-12">
-      <app-input-text formControlName="email" placeholder="E.g. user@example.com">
-        Email</app-input-text>
+      <app-input-text
+        name="email"
+        formControlName="email"
+        placeholder="E.g. user@example.com"
+      >
+        Email</app-input-text
+      >
     </div>
     <div class="col-12">
-      <app-input-text formControlName="pass" type="password">Password
+      <app-input-text name="password" formControlName="pass" type="password"
+        >Password
       </app-input-text>
     </div>
     <div class="col-12">

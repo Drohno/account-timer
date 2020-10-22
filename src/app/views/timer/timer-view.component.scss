@@ -1,11 +1,8 @@
-#center-screen-div {
+.timer__main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  form {
-    width: 50%;
-  }
 }

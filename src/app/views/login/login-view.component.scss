@@ -1,15 +1,16 @@
-.log-in-form {
+.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  form {
-    width: 50%;
-  }
 }
 
-.lock-size {
+.login__form {
+  width: 50%;
+}
+
+.login__form__lock {
   font-size: 10em;
 }
