@@ -27,5 +27,3 @@
 4. Prettier to keep things pretty to the eyes and following what is inside `.prettierrc`.
 5. Firebase as authentication database and hosting (you can [visit this project deployed](https://account-timer.web.app/))
 6. And finally Karma and Jasmine to cover unit testing.
-
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
