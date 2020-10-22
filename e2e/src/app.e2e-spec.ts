@@ -1,23 +1,17 @@
+import { browser } from 'protractor';
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Application main cycle test', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should navigate to login, fill in credentials and go to timer', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('account-timer app is running!');
+    page.fillCredentials();
+    expect(browser.getCurrentUrl()).toContain('timer');
   });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
 });
